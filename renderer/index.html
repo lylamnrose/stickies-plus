@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Note</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-color="yellow">
+    <div class="note">
+      <header class="titlebar">
+        <div class="tb-group">
+          <button class="icon-btn" id="btn-close" title="Close note (⌘W)" aria-label="Close note">×</button>
+          <button class="icon-btn" id="btn-toc" title="Contents (⌘⇧L)" aria-label="Contents">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M8 12h12"/><path d="M8 18h12"/><path d="M4 12h.01"/><path d="M4 18h.01"/></svg>
+          </button>
+          <button class="icon-btn" id="btn-new" title="New note (⌘N)" aria-label="New note">+</button>
+        </div>
+
+        <div class="tb-title" id="tb-title"></div>
+
+        <div class="tb-group">
+          <button class="icon-btn" id="btn-color" title="Color and translucency" aria-label="Color and translucency"><span class="dot"></span></button>
+          <button class="icon-btn" id="btn-pin" title="Keep on top" aria-label="Keep on top">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 3h6l-1 7 3 3v2H7v-2l3-3-1-7z"/></svg>
+          </button>
+          <button class="icon-btn" id="btn-behind" title="Send behind (bring back with ⌃⌥B or the menu bar icon)" aria-label="Send behind">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M9 21h10a2 2 0 0 0 2-2V9"/></svg>
+          </button>
+          <button class="icon-btn" id="btn-delete" title="Delete note" aria-label="Delete note">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg>
+          </button>
+          <button class="icon-btn" id="btn-collapse" title="Collapse note (⌘M)" aria-label="Collapse note">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+          </button>
+        </div>
+
+        <div class="palette" id="palette" hidden>
+          <div class="swatches" id="swatches"></div>
+          <div id="custom-slot"></div>
+          <label class="opacity-row">
+            <span>Opacity</span>
+            <input type="range" id="opacity" min="40" max="100" step="5" value="100" aria-label="Note opacity" />
+            <span id="opacity-val">100%</span>
+          </label>
+        </div>
+      </header>
+
+      <div class="content">
+        <aside class="toc" id="toc" hidden aria-label="Contents">
+          <div class="toc-head">Contents</div>
+          <nav id="toc-list"></nav>
+        </aside>
+        <main id="editor"></main>
+      </div>
+
+      <footer class="toolbars">
+        <div class="bar" id="imagetools" hidden></div>
+        <div class="bar" id="tabletools" hidden></div>
+        <div class="bar" id="maintools"></div>
+      </footer>
+    </div>
+    <input type="file" id="image-input" accept="image/*" multiple hidden />
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lb-grow" id="lb-grow" title="Grow the window to most of the screen">⤢ Larger window</button>
+      <button class="lb-close" id="lb-close" title="Close (Esc)" aria-label="Close image">×</button>
+      <img id="lb-img" alt="" />
+      <div class="lb-hint">Click the picture for actual size · Esc to close</div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>

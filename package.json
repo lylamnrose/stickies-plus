@@ -1,0 +1,48 @@
+{
+  "name": "stickies-plus",
+  "productName": "Stickies Plus",
+  "version": "1.0.0",
+  "description": "Floating sticky notes with rich text and real tables",
+  "main": "main.js",
+  "scripts": {
+    "build": "esbuild renderer/editor.js --bundle --minify --format=iife --outfile=renderer/bundle.js",
+    "start": "npm run build && electron .",
+    "pack": "npm run build && electron-builder --mac --dir"
+  },
+  "build": {
+    "appId": "com.local.stickiesplus",
+    "productName": "Stickies Plus",
+    "files": [
+      "main.js",
+      "preload.js",
+      "assets/**/*",
+      "renderer/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    }
+  },
+  "dependencies": {
+    "@tiptap/core": "^2.10.0",
+    "@tiptap/extension-color": "^2.27.3",
+    "@tiptap/extension-font-family": "^2.27.3",
+    "@tiptap/extension-highlight": "^2.27.3",
+    "@tiptap/extension-image": "^2.27.3",
+    "@tiptap/extension-placeholder": "^2.10.0",
+    "@tiptap/extension-table": "^2.10.0",
+    "@tiptap/extension-table-cell": "^2.10.0",
+    "@tiptap/extension-table-header": "^2.10.0",
+    "@tiptap/extension-table-row": "^2.10.0",
+    "@tiptap/extension-task-item": "^2.10.0",
+    "@tiptap/extension-task-list": "^2.10.0",
+    "@tiptap/extension-text-style": "^2.27.3",
+    "@tiptap/extension-underline": "^2.10.0",
+    "@tiptap/pm": "^2.10.0",
+    "@tiptap/starter-kit": "^2.10.0"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2"
+  }
+}
