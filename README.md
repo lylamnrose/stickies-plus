@@ -7,7 +7,7 @@ Floating sticky notes for macOS with rich text and real, editable tables.
 You need a Mac and Node.js (https://nodejs.org, the LTS version is fine).
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/stickies-plus.git
+git clone https://github.com/lylamnrose/stickies-plus.git
 cd stickies-plus
 npm install
 npm start
