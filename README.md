@@ -6,10 +6,13 @@ Floating sticky notes for macOS with rich text and real, editable tables.
 
 1. Go to the **Releases** page of this repository and download `Stickies-Plus-1.0.0-arm64.zip`. This build is for Macs with Apple silicon (M1 or newer). On an Intel Mac, build it yourself (below).
 2. Double-click the zip, then drag **Stickies Plus** into your **Applications** folder.
-3. Open it. The app isn't signed with a paid Apple developer account, so macOS will block it the first time. To allow it:
-   - Click **Done** (not Move to Trash) on the warning.
-   - Open **System Settings > Privacy & Security**, scroll down to the message about "Stickies Plus", and click **Open Anyway**. Enter your password if asked.
-   - Open the app again and click **Open**.
+3. The app isn't signed with a paid Apple developer account, so macOS will say it is **"damaged and can't be opened"** the first time. It isn't damaged; macOS just flags downloaded apps it can't verify. Click **Cancel** (not Move to Trash), then open **Terminal** (Spotlight > "Terminal") and paste this one line:
+
+   ```bash
+   xattr -cr "/Applications/Stickies Plus.app"
+   ```
+
+   Then open the app normally. If macOS shows a milder "can't verify the developer" message instead, go to **System Settings > Privacy & Security**, scroll down, and click **Open Anyway**.
 
 You only have to do this once. A note appears and a note icon shows up in your menu bar. There is no Dock icon on purpose; the menu bar icon is the app's home, and it has an **Open at Login** option.
 
@@ -18,14 +21,14 @@ You only have to do this once. A note appears and a note icon shows up in your m
 You need a Mac and Node.js (https://nodejs.org, the LTS version is fine).
 
 ```bash
-git clone https://github.com/lylamnrose/stickies-plus.git
+git clone https://github.com/YOUR-USERNAME/stickies-plus.git
 cd stickies-plus
 npm install
 npm start          # run it right away, or...
 npm run pack       # ...build a double-clickable app
 ```
 
-`npm run pack` puts the app in `dist/mac-arm64/Stickies Plus.app` (or `dist/mac/` on an Intel Mac). Drag it to Applications; the first-open steps above apply to it too.
+`npm run pack` puts the app in `dist/mac-arm64/Stickies Plus.app` (or `dist/mac/` on an Intel Mac). Drag it to Applications. An app you build yourself opens without the warning above.
 
 ## Using it
 
