@@ -18,7 +18,7 @@ You only have to do this once. A note appears and a note icon shows up in your m
 You need a Mac and Node.js (https://nodejs.org, the LTS version is fine).
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/stickies-plus.git
+git clone https://github.com/lylamnrose/stickies-plus.git
 cd stickies-plus
 npm install
 npm start          # run it right away, or...
