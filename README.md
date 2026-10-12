@@ -2,26 +2,30 @@
 
 Floating sticky notes for macOS with rich text and real, editable tables.
 
-## Run it
+## Install (easiest): download the app
+
+1. Go to the **Releases** page of this repository and download `Stickies-Plus-1.0.0-arm64.zip`. This build is for Macs with Apple silicon (M1 or newer). On an Intel Mac, build it yourself (below).
+2. Double-click the zip, then drag **Stickies Plus** into your **Applications** folder.
+3. Open it. The app isn't signed with a paid Apple developer account, so macOS will block it the first time. To allow it:
+   - Click **Done** (not Move to Trash) on the warning.
+   - Open **System Settings > Privacy & Security**, scroll down to the message about "Stickies Plus", and click **Open Anyway**. Enter your password if asked.
+   - Open the app again and click **Open**.
+
+You only have to do this once. A note appears and a note icon shows up in your menu bar. There is no Dock icon on purpose; the menu bar icon is the app's home, and it has an **Open at Login** option.
+
+## Build it yourself
 
 You need a Mac and Node.js (https://nodejs.org, the LTS version is fine).
 
 ```bash
-git clone https://github.com/lylamnrose/stickies-plus.git
+git clone https://github.com/YOUR-USERNAME/stickies-plus.git
 cd stickies-plus
 npm install
-npm start
+npm start          # run it right away, or...
+npm run pack       # ...build a double-clickable app
 ```
 
-A welcome note appears and a note icon shows up in your menu bar. There is no Dock icon on purpose; the menu bar icon is the app's home.
-
-## Make a double-clickable app
-
-```bash
-npm run pack
-```
-
-The app lands in `dist/mac-arm64/Stickies Plus.app` (or `dist/mac/` on Intel). Drag it to Applications. The app isn't code-signed, so the first time macOS may say it can't verify the developer: right-click the app, choose **Open**, then **Open** again (or allow it under System Settings > Privacy & Security). Once installed, the menu bar icon gets an **Open at Login** option.
+`npm run pack` puts the app in `dist/mac-arm64/Stickies Plus.app` (or `dist/mac/` on an Intel Mac). Drag it to Applications; the first-open steps above apply to it too.
 
 ## Using it
 
